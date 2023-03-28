@@ -22,8 +22,4 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
-# Rocket-Food-Delivery
-# Rocket-Food-Delivery
-# Rocket-Food-Delivery
-# Rocket-Food-Delivery
-# Rocket-Food-Delivery
+
