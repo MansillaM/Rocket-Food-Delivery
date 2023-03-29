@@ -5,10 +5,10 @@ class CreateRestaurants < ActiveRecord::Migration[7.0]
       t.integer :address_id
       t.string :name
       t.integer :price_range
-      t.timestamp :created_at
-      t.timestamp :updated_at
 
       t.timestamps
     end
+    add_foreign_key :restaurants, :users, column: :user_id, primary_key: "id"
+    add_foreign_key :restaurants, :addresses, column: :address_id, primary_key: "id"
   end
 end

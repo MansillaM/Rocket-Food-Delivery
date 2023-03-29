@@ -5,10 +5,11 @@ class CreateOrders < ActiveRecord::Migration[7.0]
       t.integer :customer_id
       t.integer :status_id
       t.integer :restaurant_rating
-      t.timestamp :created_at
-      t.timestamp :updated_at
 
       t.timestamps
     end
+    add_foreign_key :orders, :restaurants, column: :restaurant_id, primary_key: "id"
+    add_foreign_key :orders, :customers, column: :customer_id, primary_key: "id"
+    add_foreign_key :orders, :order_statuses, column: :status_id, primary_key: "id"
   end
 end

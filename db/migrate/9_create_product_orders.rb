@@ -5,10 +5,10 @@ class CreateProductOrders < ActiveRecord::Migration[7.0]
       t.integer :order_id
       t.integer :product_quantity
       t.integer :product_unit_cost
-      t.timestamp :created_at
-      t.timestamp :updated
 
       t.timestamps
     end
+    add_foreign_key :product_orders, :products, column: :product_id, primary_key: "id"
+    add_foreign_key :product_orders, :orders, column: :order_id, primary_key: "id"
   end
 end
