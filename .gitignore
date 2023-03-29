@@ -33,4 +33,9 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
-/database.yml
+
+# Ignore database.yml info
+/config/database.yml
+
+# Keep script secret
+/my-script.sh
