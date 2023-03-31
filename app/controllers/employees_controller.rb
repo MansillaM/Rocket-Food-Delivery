@@ -1,4 +1,5 @@
 class EmployeesController < ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :set_employee, only: %i[ show edit update destroy ]
 
   # GET /employees or /employees.json
@@ -21,8 +22,8 @@ class EmployeesController < ApplicationController
 
   # POST /employees or /employees.json
   def create
-    @employee = Employee.new(employee_params)
-
+    @employee = current_user.employees.build(employee_params)
+  
     respond_to do |format|
       if @employee.save
         format.html { redirect_to employee_url(@employee), notice: "Employee was successfully created." }
@@ -33,7 +34,7 @@ class EmployeesController < ApplicationController
       end
     end
   end
-
+ 
   # PATCH/PUT /employees/1 or /employees/1.json
   def update
     respond_to do |format|
@@ -65,6 +66,6 @@ class EmployeesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def employee_params
-      params.fetch(:employee, {})
+      params.require(:employee).permit(:email, :phone)
     end
 end

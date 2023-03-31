@@ -54,6 +54,8 @@ gem "devise"
 gem 'bootstrap', '~> 5.1'
 gem 'jquery-rails'
 
+# To seed fake data
+gem 'faker', '~> 3.1', '>= 3.1.1'
 
 # To run javascript
 gem 'execjs'
