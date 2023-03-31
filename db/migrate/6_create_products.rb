@@ -1,10 +1,10 @@
 class CreateProducts < ActiveRecord::Migration[7.0]
   def change
     create_table :products do |t|
-      t.integer :restaurant_id
-      t.string :name
-      t.string :description
-      t.integer :cost
+      t.integer :restaurant_id,         null: false, unique: true
+      t.string :name,                   null: false
+      t.string :description,            null: false
+      t.integer :cost,                  null: false
 
       t.timestamps
     end

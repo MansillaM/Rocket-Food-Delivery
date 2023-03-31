@@ -1,9 +1,11 @@
 class CreateCustomers < ActiveRecord::Migration[7.0]
   def change
     create_table :customers do |t|
-      t.integer :user_id
-      t.integer :address_id
-      t.boolean :subscription
+      t.integer :user_id,                      null: false, unique: true
+      t.integer :address_id,                   null: false
+      t.string :email,                         null: false
+      t.string :phone,                         null: false
+      t.boolean :subscription,                 null: false, default: false
 
       t.timestamps
     end

@@ -12,65 +12,71 @@
 
 ActiveRecord::Schema[7.0].define(version: 2023_03_29_181252) do
   create_table "addresses", force: :cascade do |t|
-    t.string "street_address"
-    t.string "city"
-    t.string "postal_code"
+    t.string "street_address", null: false
+    t.string "city", null: false
+    t.string "postal_code", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "customers", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "address_id"
-    t.boolean "subscription"
+    t.integer "user_id", null: false
+    t.integer "address_id", null: false
+    t.string "email", null: false
+    t.string "phone", null: false
+    t.boolean "subscription", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "employees", force: :cascade do |t|
-    t.integer "user_id"
+    t.integer "user_id", null: false
+    t.string "email", null: false
+    t.string "phone", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "order_statuses", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "restaurant_id"
-    t.integer "customer_id"
-    t.integer "status_id"
+    t.integer "restaurant_id", null: false
+    t.integer "customer_id", null: false
+    t.integer "status_id", null: false
     t.integer "restaurant_rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "product_orders", force: :cascade do |t|
-    t.integer "product_id"
-    t.integer "order_id"
-    t.integer "product_quantity"
-    t.integer "product_unit_cost"
+    t.integer "product_id", null: false
+    t.integer "order_id", null: false
+    t.integer "product_quantity", null: false
+    t.integer "product_unit_cost", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "products", force: :cascade do |t|
-    t.integer "restaurant_id"
-    t.string "name"
-    t.string "description"
-    t.integer "cost"
+    t.integer "restaurant_id", null: false
+    t.string "name", null: false
+    t.string "description", null: false
+    t.integer "cost", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "restaurants", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "address_id"
-    t.string "name"
-    t.integer "price_range"
+    t.integer "user_id", null: false
+    t.integer "address_id", null: false
+    t.string "name", null: false
+    t.string "email", null: false
+    t.string "phone", null: false
+    t.integer "price_range", default: 1, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
