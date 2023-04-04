@@ -24,13 +24,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_29_181252) do
     t.integer "address_id", null: false
     t.string "email", null: false
     t.string "phone", null: false
-    t.boolean "subscription", default: false, null: false
+    t.boolean "active", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "employees", force: :cascade do |t|
     t.integer "user_id", null: false
+    t.integer "address_id", null: false
     t.string "email", null: false
     t.string "phone", null: false
     t.datetime "created_at", null: false
@@ -77,6 +78,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_29_181252) do
     t.string "email", null: false
     t.string "phone", null: false
     t.integer "price_range", default: 1, null: false
+    t.boolean "active", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -103,6 +105,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_29_181252) do
 
   add_foreign_key "customers", "addresses"
   add_foreign_key "customers", "users"
+  add_foreign_key "employees", "addresses"
   add_foreign_key "employees", "users"
   add_foreign_key "orders", "customers"
   add_foreign_key "orders", "order_statuses", column: "status_id"

@@ -1,10 +1,11 @@
-<p style="color: green"><%= notice %></p>
+<div class="employee-details">
+  <p class="notice success"><%= notice %></p>
+  
+  <%= render partial: 'employee', locals: { employee: @employee } %>
 
-<%= render partial: 'employee', locals: { employee: @employee } %>
-
-<div>
-  <%= link_to "Edit this employee", edit_employee_path(@employee) %> |
-  <%= link_to "Back to employees", employees_path %>
-
-  <%= button_to "Destroy this employee", @employee, method: :delete %>
+  <div class="actions">
+    <%= link_to "Edit this employee", edit_employee_path(@employee), class: "button edit-employee" %>
+    <%= link_to "Back to employees", employees_path, class: "button back-to-employees" %>
+    <%= button_to "Destroy this employee", @employee, method: :delete, data: { confirm: "Are you sure you want to delete this employee?" }, class: "button delete-employee" %>
+  </div>
 </div>

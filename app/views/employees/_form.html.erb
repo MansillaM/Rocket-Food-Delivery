@@ -1,13 +1,22 @@
-<%= form_with(model: @employee, url: employees_path) do |form| %>
-  
-  <%= form.label :email %>
-  <%= form.email_field :email %>
-  
-  <%= form.label :phone %>
-  <%= form.text_field :phone %>
-  
+<%= form_with(model: @employee, url: employees_path, class: "employee-form") do |form| %>
 
-  <div>
-    <%= form.submit %>
+   <div class="form-group">
+    <%= form.label :user_id %>
+    <%= form.collection_select :user_id, @users, :id, :name, prompt: "Select a user" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :email, class: "form-label" %>
+    <%= form.email_field :email, class: "form-control" %>
+  </div>
+  
+  <div class="form-group">
+    <%= form.label :phone, class: "form-label" %>
+    <%= form.text_field :phone, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.submit "Create Employee", class: "btn btn-primary" %>
   </div>
 <% end %>
+

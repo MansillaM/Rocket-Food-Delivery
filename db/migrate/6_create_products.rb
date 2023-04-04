@@ -4,7 +4,7 @@ class CreateProducts < ActiveRecord::Migration[7.0]
       t.integer :restaurant_id,         null: false, unique: true
       t.string :name,                   null: false
       t.string :description,            null: false
-      t.integer :cost,                  null: false
+      t.integer :cost,                  null: false, min: 1
 
       t.timestamps
     end

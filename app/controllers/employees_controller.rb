@@ -4,6 +4,7 @@ class EmployeesController < ApplicationController
 
   # GET /employees or /employees.json
   def index
+    
     @employees = Employee.all
   end
 
@@ -13,16 +14,21 @@ class EmployeesController < ApplicationController
 
   # GET /employees/new
   def new
+    @users = User.all
     @employee = Employee.new
   end
 
   # GET /employees/1/edit
   def edit
+    @employee = Employee.find(params[:id])
+    @users = User.all
   end
 
   # POST /employees or /employees.json
   def create
-    @employee = current_user.employees.build(employee_params)
+    @users = User.all
+    @employee = Employee.new(employee_params)
+    puts @employee
   
     respond_to do |format|
       if @employee.save
@@ -66,6 +72,6 @@ class EmployeesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def employee_params
-      params.require(:employee).permit(:email, :phone)
+      params.require(:employee).permit(:user_id, :email, :phone)
     end
 end

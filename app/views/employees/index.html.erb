@@ -1,14 +1,26 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Employees</h1>
-
-<div id="employees">
-  <% @employees.each do |employee| %>
-    <%= render employee %>
-    <p>
-      <%= link_to "Show this employee", employee %>
-    </p>
-  <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class="alert alert-success" role="alert">
+        <%= notice %>
+      </div>
+      
+      <h1 class="mb-4">Employees</h1>
+      
+      <div id="employees">
+        <% @employees.each do |employee| %>
+          <%= render employee %>
+          <p>
+            <%= link_to "Show this employee", employee, class: "btn btn-primary" %>
+          </p>
+        <% end %>
+      </div>
+      
+      <%= link_to "New employee", new_employee_path, class: "btn btn-success mt-4" %>
+    </div>
+  </div>
 </div>
 
-<%= link_to "New employee", new_employee_path %>
+<div style="text-align: center;">
+  <%= link_to "Go back to home", root_path, class: "btn btn-primary" %>
+</div>
