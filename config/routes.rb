@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   root to: "home#index" 
 
   namespace :api do
-    post 'login', to: 'auth#index'
+    post '/login', to: 'auth#index'
+    post '/order/:id/status', to: 'orders#index'
   end
 
 end

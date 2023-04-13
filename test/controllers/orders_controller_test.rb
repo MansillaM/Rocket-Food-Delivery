@@ -18,6 +18,7 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
     post "/api/order/#{@order.id}/status", params: { status: "pending" }
     assert_response :success
     assert_equal "pending", @order.reload.order_status.name
+    puts "Order created + #{@order.inspect}"
   end
 
   test "update order status to 'in progress'" do
@@ -45,5 +46,5 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
 
   # create GET and POST Order controller
 
-
+ 
 end
