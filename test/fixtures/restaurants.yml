@@ -4,14 +4,18 @@ one:
   user_id: 1
   address_id: 1
   name: MyString
+  phone: MyString
+  email: MyString
   price_range: 1
   created_at: 2023-03-28 14:31:09
   updated_at: 2023-03-28 14:31:09
 
 two:
   user_id: 1
-  address_id: 1
+  address_id: 2
   name: MyString
+  phone: MyString
+  email: MyString
   price_range: 1
   created_at: 2023-03-28 14:31:09
   updated_at: 2023-03-28 14:31:09

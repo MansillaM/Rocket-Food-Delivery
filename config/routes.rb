@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'auth/index'
   devise_for :users, path: 'users', path_names: { sign_in: 'signin' }
   resources :restaurants
   resources :employees
@@ -8,5 +9,8 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   root to: "home#index" 
+
+  namespace :api do
+  end
 
 end

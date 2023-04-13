@@ -3,7 +3,7 @@ class CreateProducts < ActiveRecord::Migration[7.0]
     create_table :products do |t|
       t.integer :restaurant_id,         null: false
       t.string :name,                   null: false
-      t.string :description,            null: false
+      t.string :description
       t.integer :cost,                  null: false, min: 0
 
       t.timestamps

@@ -39,7 +39,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_29_181252) do
   create_table "customers", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "address_id", null: false
-    t.string "email", null: false
+    t.string "email"
     t.string "phone", null: false
     t.boolean "active", default: true, null: false
     t.datetime "created_at", null: false
@@ -64,8 +64,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_29_181252) do
   create_table "orders", force: :cascade do |t|
     t.integer "restaurant_id", null: false
     t.integer "customer_id", null: false
-    t.integer "status_id", null: false
-    t.integer "courier_id", null: false
+    t.integer "order_status_id", null: false
+    t.integer "courier_id"
     t.integer "restaurant_rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -83,7 +83,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_29_181252) do
   create_table "products", force: :cascade do |t|
     t.integer "restaurant_id", null: false
     t.string "name", null: false
-    t.string "description", null: false
+    t.string "description"
     t.integer "cost", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -93,7 +93,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_29_181252) do
     t.integer "user_id", null: false
     t.integer "address_id", null: false
     t.string "name", null: false
-    t.string "email", null: false
+    t.string "email"
     t.string "phone", null: false
     t.integer "price_range", default: 1, null: false
     t.boolean "active", default: true, null: false
@@ -130,7 +130,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_29_181252) do
   add_foreign_key "employees", "users"
   add_foreign_key "orders", "couriers"
   add_foreign_key "orders", "customers"
-  add_foreign_key "orders", "order_statuses", column: "status_id"
+  add_foreign_key "orders", "order_statuses"
   add_foreign_key "orders", "restaurants"
   add_foreign_key "product_orders", "orders"
   add_foreign_key "product_orders", "products"

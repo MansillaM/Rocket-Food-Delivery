@@ -4,7 +4,7 @@ class CreateRestaurants < ActiveRecord::Migration[7.0]
       t.integer :user_id,                    null: false
       t.integer :address_id,                 null: false, unique: true
       t.string :name,                        null: false
-      t.string :email,                       null: false
+      t.string :email
       t.string :phone,                       null: false
       t.integer :price_range,                null: false, default: 1, min: 1, max: 3
       t.boolean :active,                     null: false, default: true

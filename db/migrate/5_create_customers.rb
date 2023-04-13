@@ -3,7 +3,7 @@ class CreateCustomers < ActiveRecord::Migration[7.0]
     create_table :customers do |t|
       t.integer :user_id,                      null: false, unique: true
       t.integer :address_id,                   null: false
-      t.string :email,                         null: false
+      t.string :email
       t.string :phone,                         null: false
       t.boolean :active,                       null: false, default: true
 
