@@ -49,7 +49,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_29_181252) do
   create_table "employees", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "address_id", null: false
-    t.string "email", null: false
+    t.string "email"
     t.string "phone", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
