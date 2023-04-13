@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   root to: "home#index" 
 
   namespace :api do
+    post 'login', to: 'auth#index'
   end
 
 end

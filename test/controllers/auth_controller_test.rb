@@ -1,3 +1,5 @@
+require "test_helper"
+
 class ApiControllerTest < ActionDispatch::IntegrationTest
 
   test "login route exists and is a POST route" do
@@ -16,5 +18,5 @@ class ApiControllerTest < ActionDispatch::IntegrationTest
     assert_response :unauthorized
     assert_equal({ success: false }.to_json, response.body)
   end
-
+  
 end
