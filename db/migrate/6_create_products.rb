@@ -8,6 +8,6 @@ class CreateProducts < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
-    add_foreign_key :products, :restaurants, column: :restaurant_id, primary_key: "id"
+    add_foreign_key :products, :restaurants, column: :restaurant_id, primary_key: "id" 
   end
 end

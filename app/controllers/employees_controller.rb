@@ -4,7 +4,6 @@ class EmployeesController < ApplicationController
 
   # GET /employees or /employees.json
   def index
-    
     @employees = Employee.all
   end
 

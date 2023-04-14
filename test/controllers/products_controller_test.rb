@@ -31,5 +31,5 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     assert_response 422
     assert_equal({ error: "Invalid restaurant ID" }.to_json, response.body)
   end
-
+  
 end
