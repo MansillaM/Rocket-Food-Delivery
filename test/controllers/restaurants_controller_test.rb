@@ -39,5 +39,5 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_not_nil @controller.instance_variable_get(:@restaurants)
   end
-
+ 
 end
