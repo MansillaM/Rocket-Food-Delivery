@@ -11,10 +11,17 @@ Rails.application.routes.draw do
   root to: "home#index" 
 
   namespace :api do
+    post '/login', to: 'auth#index'
+    post "/orders", to: "orders#create"
+    post '/order/:id/status', to: 'orders#set_status'
+    get "/orders", to: "orders#index"
     get '/products', to: 'products#index'
     get '/restaurants', to: 'restaurants#index'
-    post '/login', to: 'auth#index'
-    post '/order/:id/status', to: 'orders#index'
+
+    post "/order/:id/rating", to: "orders#set_rating"
+    get "/account/:id", to: "auth#get_account"
+    post "/account/:id", to: "auth#update_account"
   end
 
+  
 end
